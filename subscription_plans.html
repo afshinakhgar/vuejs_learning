@@ -33,9 +33,11 @@
 				<span>{{plan.name}}</span>
 				<span>{{plan.price}}/month</span>
 
-				<button @click="setActivePlan">
-					Upgrade
+				<button @click="setActivePlan" v-show="plan.name != active.name">
+					{{isUpgrade ? 'Upgrade' : 'DownGrade'}}
 				</button>
+
+				<span v-else>Current</span>
 			</div>
 		</template>
 		<script>
@@ -58,6 +60,11 @@
 							return {
 								active : false
 							};
+						},
+						computed : {
+							isUpgrade : function(){
+								return this.plan.price > this.active.price
+							}
 						},
 						methods : {
 							setActivePlan : function(){
