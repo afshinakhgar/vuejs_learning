@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Component</title>
+	</head>
+	<body>
+		<div id="app">
+			<counter header="Likes"></counter>
+			<counter header="disLikes"></counter>
+			<counter ></counter>
+		</div>		
+		<template id="counter-template">
+			<h1>{{header}}</h1>
+			<button @click="count+=1">Increment+ {{count}}</button>
+		</template>
+
+		<script src="vue.js"></script>
+		<script>
+			Vue.component('counter',{
+				template:'#counter-template',
+				props : {
+					header:{default:'afshin'}
+				},
+				data : function(){
+					return {count:0};
+				}
+			});
+			new Vue({
+				el:"#app",
+				data : {
+					count: 0
+				},
+				methods : {
+					updateCount : function(){
+						this.count += 1;
+					}
+				}
+				
+			});
+		</script>
+	</body>
+</html>

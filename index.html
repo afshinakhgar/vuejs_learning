@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>TEST</title>
+	</head>
+
+	<body>
+		<div id="app">{{message}}
+			<br>
+			<input type="text" v-model="message" value="Aaaa">
+
+
+			<pre>
+				{{$data | json}}
+			</pre>
+		</div>		
+		
+
+
+		<script src="vue.js"></script>
+		<script>
+			var data = {
+				message: 'Hello World!!'
+			};
+			new Vue({
+				el:"#app",
+				data:data
+			});
+		</script>
+	</body>
+</html>

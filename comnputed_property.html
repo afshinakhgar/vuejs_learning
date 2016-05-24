@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Component</title>
+	</head>
+	<body>
+
+		<h1>Skill: {{skill}}</h1>
+		<input type="text" v-model="points">
+
+		<script src="vue.js"></script>
+		<script>
+			new Vue({
+				el:'body',
+
+				data : {
+					points: 155,
+				},
+				computed: {
+					skill : function(){
+						if(this.points <= 100){
+							return 'Beginer';
+						}
+						return 'Advanced';
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
