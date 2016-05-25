@@ -18,6 +18,7 @@
 		</div>		
 		
 		<template id="tasks-template">
+			<h2>remain ({{remaining}})</h2>
 			<ul>
 				<li :class="{'completed' : task.completed}" v-for='task in list'
 				@click="toggleCompletedFor(task)"
