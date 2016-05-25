@@ -6,6 +6,9 @@
 			.completed{
 				text-decoration: line-through;
 			}
+			.list{
+				cursor: pointer
+			}
 		</style>
 	</head>
 
@@ -18,12 +21,17 @@
 		</div>		
 		
 		<template id="tasks-template">
-			<h2>remain ({{remaining}})</h2>
-			<ul>
+			<h2>MY Tasks 
+				<span v-show='remaining'> ({{remaining}})</span>
+			</h2>
+			<ul class="list" v-show="list.length">
 				<li :class="{'completed' : task.completed}" v-for='task in list'
 				@click="toggleCompletedFor(task)"
-				>{{task.body}}</li>
+				>{{task.body}}
+					<strong @click="deleteTask(task)">x</strong>
+				</li>
 			</ul>
+			<div v-else> No Task Yet!</div>
 		</template>
 
 		<script src="vue.js"></script>

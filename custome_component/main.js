@@ -16,6 +16,9 @@ Vue.component('tasks',{
 		},
 		inProgress : function(task){
 			return !task.completed;
+		},
+		deleteTask : function(task){
+			this.list.$remove(task);
 		}
 	},
 });
