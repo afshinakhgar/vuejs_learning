@@ -1,18 +1,25 @@
 Vue.component('tasks',{
 	props : ['list'],
 	template:'#tasks-template',
+	computed : {
+		remaining : function(){
+			var vm = this;
+			return this.list.filter(function(task){
+				return vm.isInProgress(task);
+			}).length;
+		}
+	},
 	methods :{ 
 		toggleCompletedFor : function(task){
 			task.completed = !task.completed;
+		},
+		isCompleted : function(task){
+			return task.completed;
+		},
+		isInProgress : function(task){
+			return !task.completed;
 		}
 	},
-	computed : {
-		remaining : function(){
-			return this.list.filter(function(task){
-				return !task.completed;
-			}).length;
-		}
-	}
 });
 new Vue({
 	el : '#app',
