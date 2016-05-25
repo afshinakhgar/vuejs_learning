@@ -4,9 +4,7 @@ Vue.component('tasks',{
 	computed : {
 		remaining : function(){
 			var vm = this;
-			return this.list.filter(function(task){
-				return vm.isInProgress(task);
-			}).length;
+			return this.list.filter(this.inProgress).length;
 		}
 	},
 	methods :{ 
@@ -16,7 +14,7 @@ Vue.component('tasks',{
 		isCompleted : function(task){
 			return task.completed;
 		},
-		isInProgress : function(task){
+		inProgress : function(task){
 			return !task.completed;
 		}
 	},
