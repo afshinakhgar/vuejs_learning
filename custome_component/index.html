@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>TEST</title>
+
+		<style>
+			.completed{
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" >
+			<tasks :list="tasks"></tasks>
+
+			<tasks :list="[{body:'go ',completed:false}]"></tasks>
+			<tasks :list="[{body:'test ',completed:false}]"></tasks>
+		</div>		
+		
+		<template id="tasks-template">
+			<ul>
+				<li :class="{'completed' : task.completed}" v-for='task in list'
+				@click="toggleCompletedFor(task)"
+				>{{task.body}}</li>
+			</ul>
+		</template>
+
+		<script src="vue.js"></script>
+		<script src="main.js"></script>
+		
+	</body>
+</html>
