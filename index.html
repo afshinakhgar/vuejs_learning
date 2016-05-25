@@ -4,26 +4,27 @@
 	</head>
 
 	<body>
-		<div id="app">{{message}}
+		<div id="app">
 			<br>
-			<input type="text" v-model="message" value="Aaaa">
 
+			salam {{message}} chetr ?
+
+			<input type="text" v-model="message" value="Aaaa">
+			<input type="text" v-model="message5">
 
 			<pre>
 				{{$data | json}}
 			</pre>
 		</div>		
 		
-
-
 		<script src="vue.js"></script>
 		<script>
-			var data = {
-				message: 'Hello World!!'
-			};
 			new Vue({
 				el:"#app",
-				data:data
+				data:{
+					message: 'Hello World!!',
+					message5: 'Hello World 222!!'
+				}
 			});
 		</script>
 	</body>
